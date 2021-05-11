@@ -82,5 +82,16 @@ public class Biblioteca {
         lector.setDiasMulta(multaFinal);
     }
 
+    //Metodo para buscar un lector en el registro 
+    private boolean buscarLector(int codigoLector){
+        boolean ax = false;
+        for (int i = 0; i < lectores.length; i++) {
+            if (codigoLector == lectores[i].getCodigoLector()) {
+                ax = true;
+            }
+        }
+        return ax;
+    }
+
 
 }
