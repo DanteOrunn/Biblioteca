@@ -16,13 +16,13 @@ public class Libro {
     private Fecha añoLanzamiento; //Fecha del lanzamiento oficial del libro
     private int estado; //Estado al que pertenece el libro (En Biblioteca, Prestado, Con retraso o En reparacion)
 
-    Libro(String nombre, Autor autor, int tipo, String editorial, Fecha fechaNacimiento, int estado){
+    public Libro(String nombre, Autor autor, int tipo, String editorial, Fecha fechaLanzamiento, int estado){
         this.identificador = ++Libro.contadorLibro;
         this.nombre = nombre;
         this.autor = autor;
         this.tipo = tipo;
         this.nombreEditorial = editorial;
-        this.añoLanzamiento = fechaNacimiento;
+        this.añoLanzamiento = fechaLanzamiento;
         this.estado = estado;
     }
 

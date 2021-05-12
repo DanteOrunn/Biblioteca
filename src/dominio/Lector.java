@@ -11,12 +11,14 @@ public class Lector {
     private boolean multa; //Multa que se da al lector luego de retrasar la entrega de un libro
     private int diasMulta; //Cantidad de dias multado
     private boolean habilitado; //Muestra si el Lector esta habilitado
+    private int cantLibros;
 
     public Lector(){
         this.codigoLector = ++Lector.contadorLectores;
         this.libros = new Libro[3];
         this.multa = false;
         this.diasMulta = 0;
+        this.cantLibros = 0;
     }
 
     public Lector(Libro[] libros){
@@ -24,6 +26,7 @@ public class Lector {
         this.libros = libros;
         this.multa = false;
         this.diasMulta = 0;
+        this.cantLibros = 0;
     }
 
     public int getCodigoLector(){
@@ -60,6 +63,32 @@ public class Lector {
 
     public void setHabilitado(boolean habilitado) {
         this.habilitado = habilitado;
+    }
+
+    public void setCantLibros(int cantidadLibros){
+        this.cantLibros = cantidadLibros;
+    }
+
+    public int getCantidadLibros(){
+        return cantLibros;
+    }
+
+    public void recibirLibro(Libro libro){
+        if (cantLibros < 4) {
+            for(int i = 0 ; i < libros.length ; i++){
+                if (libros[i] == null) {
+                    this.libros[i] = libro;
+                }
+            }
+        }
+    }
+
+    public void entregarLibro(int codigoLibro){
+        for(int i = 0 ; i < libros.length ; i++){
+            if (codigoLibro == libros[i].getIdentificador()) {
+                libros[i] = null;
+            }
+        }
     }
 
     @Override
